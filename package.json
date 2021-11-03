@@ -1,0 +1,23 @@
+{
+  "name": "valuemaster-sdk-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoyCood/valuemaster-sdk-core.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoyCood/valuemaster-sdk-core/issues"
+  },
+  "homepage": "https://github.com/JoyCood/valuemaster-sdk-core#readme",
+  "dependencies": {
+    "@ethersproject/address": "^5.5.0",
+    "tiny-invariant": "^1.2.0"
+  }
+}
