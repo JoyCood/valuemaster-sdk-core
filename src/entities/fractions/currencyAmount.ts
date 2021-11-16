@@ -1,12 +1,13 @@
-import _Big from 'big.js'
+import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 import { Currency } from '../currency'
 import { Token } from '../token'
 import { Fraction } from './fraction'
 
+import _Big from 'big.js'
 import toFormat from 'toformat'
+
 import { BigintIsh, Rounding, MaxUint256 } from '../../constants'
-import invariant from 'tiny-invariant'
 
 const Big = toFormat(_Big)
 
@@ -22,6 +23,7 @@ export class CurrencyAmount<T extends Currency> extends Fraction {
   public static fromRawAmount<T extends Currency>(currency: T, rawAmount: BigintIsh): CurrencyAmount<T> {
     return new CurrencyAmount(currency, rawAmount)
   }
+
 
   /**
    * Construct a currency amount with a denominator that is not equal to 1

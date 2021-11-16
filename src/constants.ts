@@ -3,8 +3,16 @@ import JSBI from "jsbi";
 // exports for external consumption
 export type BigintIsh = JSBI | string | number
 
-export enum TradeType {
-  EXACT_INPUT
+export enum Action {
+  BUY,
+	SALE,
+	UPDATE,
+	CANCEL,
+}
+
+export enum ItemType {
+	ERC721,
+	ERC1155,
 }
 
 export enum Rounding {
