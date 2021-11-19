@@ -1,6 +1,6 @@
 {
   "name": "@valuemaster/sdk-core",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -34,6 +34,11 @@
     "toformat": "^2.0.0",
     "tsdx": "^0.14.1",
     "valuemaster-sdk-core": "^1.0.1"
+  },
+	"devDependencies": {
+    "@types/big.js": "^4.0.5",
+    "@types/jest": "^24.0.25",
+    "tsdx": "^0.14.1"
   },
   "engines": {
     "node": ">=10"
