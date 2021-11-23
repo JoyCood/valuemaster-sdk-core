@@ -7,15 +7,15 @@ export enum NFT_TYPE {
 }
 
 export abstract class BaseNFT {
-  public abstract readonly type: NFT_TYPE
+	public abstract readonly type: NFT_TYPE
 
 	public readonly chainId: number
 
 	public readonly address: string
 
-	public readonly id: number
+	public readonly id: number | undefined
 
-	public readonly quantitry: number
+	public readonly quantitry: number | undefined
 
 	public readonly symbol?: string
 
@@ -23,13 +23,13 @@ export abstract class BaseNFT {
 
 	public readonly img?: string
 
-  protected constructor(
-		chainId: number, 
-		address: string, 
-		id: number, 
-		quantity: number, 
-		symbol?: string, 
-		name?: string, 
+	protected constructor(
+		chainId: number,
+		address: string,
+		id?: number,
+		quantity?: number,
+		symbol?: string,
+		name?: string,
 		img?: string
 	) {
 		invariant(Number.isSafeInteger(chainId), 'CHAIN_ID')
@@ -44,7 +44,7 @@ export abstract class BaseNFT {
 		this.img = img
 	}
 
-	public abstract get isERC721(): boolean 
-	
+	public abstract get isERC721(): boolean
+
 	public abstract get isERC1155(): boolean
 }
