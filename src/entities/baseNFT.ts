@@ -13,9 +13,9 @@ export abstract class BaseNFT {
 
 	public readonly address: string
 
-	public readonly id: number | undefined
+	public readonly id?: number
 
-	public readonly quantitry: number | undefined
+	public readonly quantitry?: number 
 
 	public readonly symbol?: string
 
@@ -26,14 +26,13 @@ export abstract class BaseNFT {
 	protected constructor(
 		chainId: number,
 		address: string,
-		id?: number,
-		quantity?: number,
 		symbol?: string,
 		name?: string,
-		img?: string
+		img?: string,
+		id?: number,
+		quantity?: number,
 	) {
 		invariant(Number.isSafeInteger(chainId), 'CHAIN_ID')
-		invariant(Number.isInteger(quantity), 'QUANTITY')
 
 		this.chainId = chainId
 		this.address = validateAndParseAddress(address)
