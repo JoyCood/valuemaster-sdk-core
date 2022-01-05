@@ -13,34 +13,22 @@ export abstract class BaseNFT {
 
 	public readonly address: string
 
-	public readonly id?: number
-
-	public readonly quantitry?: number 
-
-	public readonly symbol?: string
-
 	public readonly name?: string
 
-	public readonly img?: string
+	public readonly symbol?: string
 
 	protected constructor(
 		chainId: number,
 		address: string,
-		symbol?: string,
 		name?: string,
-		img?: string,
-		id?: number,
-		quantity?: number,
+		symbol?: string
 	) {
 		invariant(Number.isSafeInteger(chainId), 'CHAIN_ID')
 
 		this.chainId = chainId
 		this.address = validateAndParseAddress(address)
-		this.id = id
-		this.quantitry = quantity
-		this.symbol = symbol
 		this.name = name
-		this.img = img
+		this.symbol = symbol
 	}
 
 	public abstract get isERC721(): boolean

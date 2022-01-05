@@ -2,17 +2,17 @@ import { BaseNFT, NFT_TYPE } from "./baseNFT";
 
 export class ERC1155 extends BaseNFT {
 	public readonly type = NFT_TYPE.ERC1155
+	public readonly uri?:string
 
 	public constructor(
 		chainId: number, 
 		address: string, 
-		symbol?: string, 
-		name?: string, 
-		img?: string,
-		id?: number, 
-		quantity?: number, 
+		name?: string,
+		symbol?: string,
+		uri?: string 
 	) {
-		super(chainId, address, symbol, name, img, id, quantity)
+		super(chainId, address, name, symbol)
+		this.uri = uri
 	}
 
 	public get isERC721(): false {
