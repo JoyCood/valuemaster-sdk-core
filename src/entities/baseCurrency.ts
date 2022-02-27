@@ -16,6 +16,7 @@ export abstract class BaseCurrency {
    * The chain ID on which this currency resides
    */
   public readonly chainId: number
+
   /**
    * The decimals used in representing currency amounts
    */
