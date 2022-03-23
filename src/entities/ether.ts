@@ -8,8 +8,8 @@ import { WETH9 } from "./weth9"
  * Ether is the main usage of a 'native' currency, i.e for Etherum mainnet and all testnets
  */
 export class Ether extends NativeCurrency {
-  protected constructor(chainId: number, address: string) {
-    super(chainId, address, 18, 'ETH', 'Ether')
+  protected constructor(chainId: number) {
+    super(chainId, 18, 'ETH', 'Ether')
   }
 
   public get wrapped(): Token {
@@ -20,8 +20,8 @@ export class Ether extends NativeCurrency {
 
   private static _etherCache: { [chainId: number]: Ether } = {}
 
-  public static onChain(chainId: number, address: string): Ether {
-    return this._etherCache[chainId] ?? (this._etherCache[chainId] = new Ether(chainId, address))
+  public static onChain(chainId: number): Ether {
+    return this._etherCache[chainId] ?? (this._etherCache[chainId] = new Ether(chainId))
   }
 
   public equals(other: Currency): boolean {

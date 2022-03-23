@@ -1,8 +1,9 @@
-import { BigNumber } from "ethers";
+import { BigNumber } from "@ethersproject/bignumber";
 import { Listing } from "./listing";
 
-export class ERC721Listing extends Listing {
-	public readonly timePushed: number
+export class ERC1155Listing extends Listing {
+	public readonly quantity: BigNumber
+	public readonly sold: boolean
 
 	public constructor(
 		listingId: BigNumber,
@@ -14,7 +15,8 @@ export class ERC721Listing extends Listing {
 		priceInWei: BigNumber,
 		timeCreated: number,
 		cancelled: boolean,
-		timePushed: number
+		quantity: BigNumber,
+		sold: boolean
 	) {
     super(
 			listingId,
@@ -27,14 +29,15 @@ export class ERC721Listing extends Listing {
 			timeCreated,
 			cancelled
 		)
-		this.timePushed = timePushed
+		this.quantity = quantity
+		this.sold = sold
 	}
 
-	public get isERC721(): boolean {
-		return true;
+  public	get isERC721(): boolean{
+		return false
 	}
 
-	public get isERC1155(): boolean {
-		return false;
+  public get isERC1155(): boolean {
+    return true
 	}
 }

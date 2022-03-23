@@ -9,9 +9,11 @@ export class ERC1155 extends BaseNFT {
 		tokenId: string, 
 		name?: string,
 		symbol?: string,
-		uri?: string 
+		uri?: string, 
+		image?: string,
+		description?: string,
 	) {
-		super(chainId, address, tokenId, name, symbol, uri)
+		super(chainId, address, tokenId, name, symbol, uri, image, description)
 	}
 
 	public get isERC721(): false {

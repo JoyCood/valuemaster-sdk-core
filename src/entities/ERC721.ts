@@ -10,8 +10,10 @@ export class ERC721 extends BaseNFT {
 		name?: string,
 		symbol?: string,
 		uri?: string,
+		image?: string,
+		description?: string,
 	) {
-		super(chainId, address, tokenId, name, symbol, uri)
+		super(chainId, address, tokenId, name, symbol, uri, image, description)
 	}
 
 	public get isERC721(): true {
