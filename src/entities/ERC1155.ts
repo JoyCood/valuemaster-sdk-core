@@ -1,4 +1,4 @@
-import { BaseNFT, NFT_TYPE } from "./baseNFT";
+import { BaseNFT, Metadata, NFT_TYPE } from "./baseNFT";
 
 export class ERC1155 extends BaseNFT {
 	public readonly type = NFT_TYPE.ERC1155
@@ -7,13 +7,9 @@ export class ERC1155 extends BaseNFT {
 		chainId: number, 
 		address: string,
 		tokenId: string, 
-		name?: string,
-		symbol?: string,
-		uri?: string, 
-		image?: string,
-		description?: string,
+    metadata: Metadata
 	) {
-		super(chainId, address, tokenId, name, symbol, uri, image, description)
+		super(chainId, address, tokenId, metadata)
 	}
 
 	public get isERC721(): false {

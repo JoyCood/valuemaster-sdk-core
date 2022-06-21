@@ -6,6 +6,23 @@ export enum NFT_TYPE {
 	ERC1155 = 1155,
 }
 
+type Attribute = {
+	train_type: string
+	value: string | number
+}
+
+export interface Metadata {
+  image?: string
+	image_data?: string
+	external_url?: string
+	description?: string
+	name?: string
+	attributes?: Attribute[]
+	background_color?: string
+	animation_url?: string
+	youtube_url?: string
+}
+
 export abstract class BaseNFT {
 	public abstract readonly type: NFT_TYPE
 
@@ -15,36 +32,21 @@ export abstract class BaseNFT {
 
 	public readonly tokenId: string
 
-	public readonly name?: string
+	public readonly metadata: Metadata
 
-	public readonly symbol?: string
-
-	public readonly uri?: string
-
-	public readonly image?: string
-
-	public readonly description?: string
 
 	protected constructor(
 		chainId: number,
 		address: string,
 		tokenId: string,
-		name?: string,
-		symbol?: string,
-		uri?: string,
-		image?: string,
-    description?: string
+		metadata: Metadata
 	) {
 		invariant(Number.isSafeInteger(chainId), 'CHAIN_ID')
 
 		this.chainId = chainId
 		this.address = validateAndParseAddress(address)
 		this.tokenId = tokenId
-		this.name = name
-		this.symbol = symbol
-		this.uri = uri
-		this.image = image
-		this.description = description
+		this.metadata = metadata
 	}
 
 	public abstract get isERC721(): boolean

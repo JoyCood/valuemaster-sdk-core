@@ -1,6 +1,6 @@
 {
   "name": "@valuemaster/sdk-core",
-  "version": "1.0.13",
+  "version": "1.0.15",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
